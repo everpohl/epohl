@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prism at UNC Charlotte builds LGBTQ+ community, shares resources, and supports advocacy for students and allies."
+    />
+    <title>Prism at UNC Charlotte</title>
+    <style>
+      :root {
+        --surface: rgba(255, 255, 255, 0.78);
+        --surface-strong: #ffffff;
+        --text: #1f1630;
+        --muted: #5f5570;
+        --border: rgba(58, 34, 90, 0.12);
+        --primary: #c2410c;
+        --primary-dark: #8f2d09;
+        --accent: #0f766e;
+        --shadow: 0 18px 40px rgba(49, 26, 76, 0.12);
+        --max-width: 1120px;
+        --radius: 24px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.6;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(250, 204, 21, 0.32), transparent 28%),
+          radial-gradient(circle at 85% 15%, rgba(15, 118, 110, 0.18), transparent 22%),
+          linear-gradient(180deg, #fff5dd 0%, #fff8ef 38%, #fffdf8 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        padding: 0.75rem 1rem;
+        background: var(--text);
+        color: #fff;
+        border-radius: 0.75rem;
+        z-index: 100;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .site-header,
+      .section,
+      .site-footer {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.25rem 0;
+      }
+
+      .brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-list a {
+        text-decoration: none;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+      }
+
+      .nav-list a:hover,
+      .nav-list a:focus-visible {
+        background: rgba(31, 22, 48, 0.08);
+        outline: none;
+      }
+
+      .hero {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+        padding: 2rem 0 1rem;
+      }
+
+      .hero-panel {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 1.5rem;
+        align-items: stretch;
+        padding: clamp(1.5rem, 3vw, 3rem);
+        border: 1px solid var(--border);
+        border-radius: 2rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 245, 221, 0.92));
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(250, 204, 21, 0.4);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 3.8vw, 3rem);
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-copy p,
+      .section-intro {
+        font-size: 1.08rem;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin: 1.5rem 0;
+      }
+
+      .button {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        border: 2px solid transparent;
+      }
+
+      .button-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .button-primary:hover,
+      .button-primary:focus-visible {
+        background: var(--primary-dark);
+        outline: none;
+      }
+
+      .button-secondary {
+        background: transparent;
+        border-color: rgba(31, 22, 48, 0.16);
+      }
+
+      .button-secondary:hover,
+      .button-secondary:focus-visible {
+        border-color: var(--text);
+        outline: none;
+      }
+
+      .hero-note {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .hero-card {
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+        padding: 1.25rem;
+        border-radius: 1.5rem;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(15, 118, 110, 0.14);
+      }
+
+      .hero-card h2 {
+        font-size: 1.35rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .hero-card ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .section {
+        padding: 4.5rem 0 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .three-up {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .two-up {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .card p:last-child,
+      .event-meta:last-child {
+        margin-bottom: 0;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .event-card {
+        background: var(--surface-strong);
+      }
+
+      .event-meta {
+        color: var(--muted);
+      }
+
+      .resource-list {
+        margin: 1rem 0 0;
+        padding-left: 1.2rem;
+      }
+
+      .resource-list li + li {
+        margin-top: 0.5rem;
+      }
+
+      .highlight-panel {
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, rgba(15, 118, 110, 0.95), rgba(20, 83, 45, 0.95));
+        color: #f8fffd;
+        box-shadow: var(--shadow);
+      }
+
+      .highlight-panel p {
+        color: rgba(248, 255, 253, 0.9);
+      }
+
+      .site-footer {
+        padding: 4rem 0 2.5rem;
+      }
+
+      .footer-panel {
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        background: #20172f;
+        color: #fff8ef;
+      }
+
+      .footer-panel p {
+        margin-bottom: 0;
+        color: rgba(255, 248, 239, 0.82);
+      }
+
+      @media (max-width: 860px) {
+        .site-header,
+        .hero-panel,
+        .three-up,
+        .two-up {
+          grid-template-columns: 1fr;
+        }
+
+        .site-header {
+          display: grid;
+          justify-content: stretch;
+        }
+      }
+
+      @media (max-width: 620px) {
+        body {
+          font-size: 0.98rem;
+        }
+
+        .site-header {
+          padding-top: 1rem;
+        }
+
+        .nav-list {
+          gap: 0.35rem;
+        }
+
+        .hero,
+        .section,
+        .site-footer {
+          width: min(calc(100% - 1.25rem), var(--max-width));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <a class="brand" href="/epohl/">Prism at UNC Charlotte</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#connect">Connect</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Community. Support. Advocacy.</p>
+            <h1 id="hero-title">A welcoming home for LGBTQ+ students and allies.</h1>
+            <p>
+              Prism helps UNC Charlotte students find community, learn about campus and local
+              resources, and take part in meaningful advocacy work that makes campus life safer
+              and more affirming.
+            </p>
+            <div class="cta-row">
+              <a class="button button-primary" href="#events">See Upcoming Events</a>
+              <a class="button button-secondary" href="#resources">Find Support</a>
+            </div>
+            <p class="hero-note">
+              Looking for a place to start? Check the next event, browse support resources, or
+              reach out to Prism directly.
+            </p>
+          </div>
+
+          <aside class="hero-card" aria-labelledby="quick-info-title">
+            <div>
+              <span class="tag">Quick Start</span>
+              <h2 id="quick-info-title">What you can do here</h2>
+            </div>
+            <ul>
+              <li>Learn what Prism does on campus</li>
+              <li>Keep up with meetings, events, and campaigns</li>
+              <li>Access LGBTQ+ support and community resources</li>
+              <li>Find ways to get involved as a student or ally</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <span class="tag">About Prism</span>
+        <h2 id="about-title">More than a club, Prism is a support network.</h2>
+        <p class="section-intro">
+          A strong student organization homepage should explain its purpose quickly. This section
+          gives visitors an immediate sense of what Prism offers and why it matters.
+        </p>
+        <div class="grid three-up">
+          <article class="card">
+            <h3>Build Community</h3>
+            <p>
+              Create spaces where students can meet one another, feel welcomed, and make
+              meaningful connections on campus.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Share Resources</h3>
+            <p>
+              Point students toward practical support, whether they need campus information,
+              affirming services, or guidance on where to begin.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Support Advocacy</h3>
+            <p>
+              Organize around issues that affect LGBTQ+ students and help people participate in
+              campaigns, letters, and collective action.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="events" aria-labelledby="events-title">
+        <span class="tag">Featured Events</span>
+        <h2 id="events-title">Start with what’s happening next.</h2>
+        <p class="section-intro">
+          Event information is usually one of the main reasons someone visits an org website, so
+          it deserves a clear, high-visibility place on the homepage.
+        </p>
+        <div class="grid three-up">
+          <article class="card event-card">
+            <h3>General Body Meeting</h3>
+            <p class="event-meta">Tuesday, 6:00 PM • Student Union</p>
+            <p>
+              Meet new members, hear updates, and help shape upcoming Prism activities and goals.
+            </p>
+          </article>
+          <article class="card event-card">
+            <h3>Community Game Night</h3>
+            <p class="event-meta">Thursday, 7:00 PM • Cone Center</p>
+            <p>
+              A casual, low-pressure event focused on making friends and building community.
+            </p>
+          </article>
+          <article class="card event-card">
+            <h3>Advocacy Action Workshop</h3>
+            <p class="event-meta">Friday, 4:30 PM • Atkins Library</p>
+            <p>
+              Learn how Prism supports petitions, outreach, and letter-writing campaigns that
+              matter to students.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="resources" aria-labelledby="resources-title">
+        <div class="grid two-up">
+          <div>
+            <span class="tag">Resources</span>
+            <h2 id="resources-title">Support should be easy to find.</h2>
+            <p class="section-intro">
+              For a site like this, resources are not secondary. Students may arrive here looking
+              for help first, so the design should make support visible and approachable.
+            </p>
+            <ul class="resource-list">
+              <li>Campus LGBTQ+ support and identity-affirming services</li>
+              <li>Mental health and wellness resources</li>
+              <li>Ways to connect with trusted student leaders</li>
+              <li>Information for allies who want to help responsibly</li>
+            </ul>
+          </div>
+
+          <aside class="highlight-panel" id="connect" aria-labelledby="connect-title">
+            <span class="tag" style="color: #facc15;">Get Connected</span>
+            <h2 id="connect-title">Need a first step?</h2>
+            <p>
+              The homepage should always offer a clear next action. If someone is unsure where to
+              begin, give them one simple path forward.
+            </p>
+            <p>
+              Email Prism, attend the next meeting, or explore resources for immediate support.
+            </p>
+            <a
+              class="button button-secondary"
+              href="mailto:prism@charlotte.edu"
+              style="color: #fff8ef; border-color: rgba(255, 248, 239, 0.42);"
+            >
+              Contact Prism
+            </a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-panel">
+        <h2>Prism at UNC Charlotte</h2>
+        <p>
+          Built to help students find community, support, events, and ways to get involved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

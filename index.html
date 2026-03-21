@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ethan Pohl's homepage at UNC Charlotte, with links to projects, work, and the Prism student organization site."
+    />
+    <title>Ethan Pohl | UNC Charlotte</title>
+    <style>
+      :root {
+        --bg: #f7f3ea;
+        --surface: rgba(255, 255, 255, 0.82);
+        --text: #1f1727;
+        --muted: #625869;
+        --border: rgba(31, 23, 39, 0.12);
+        --primary: #0f766e;
+        --primary-dark: #115e59;
+        --accent: #c2410c;
+        --shadow: 0 18px 44px rgba(34, 25, 45, 0.12);
+        --max-width: 1080px;
+        --radius: 24px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.6;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(15, 118, 110, 0.15), transparent 30%),
+          radial-gradient(circle at right, rgba(194, 65, 12, 0.12), transparent 25%),
+          linear-gradient(180deg, #f5efe3 0%, var(--bg) 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        padding: 0.75rem 1rem;
+        background: var(--text);
+        color: #fff;
+        border-radius: 0.75rem;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .wrap {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 1.25rem 0 0;
+      }
+
+      .hero {
+        padding: 3rem 0 2rem;
+      }
+
+      .hero-panel {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 1.5rem;
+        padding: clamp(1.5rem, 3vw, 3rem);
+        border-radius: 2rem;
+        border: 1px solid var(--border);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(245, 239, 227, 0.9));
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.12);
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 5vw, 4.8rem);
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin: 1.5rem 0;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 2px solid transparent;
+      }
+
+      .button-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .button-primary:hover,
+      .button-primary:focus-visible {
+        background: var(--primary-dark);
+        outline: none;
+      }
+
+      .button-secondary {
+        border-color: rgba(31, 23, 39, 0.16);
+      }
+
+      .button-secondary:hover,
+      .button-secondary:focus-visible {
+        border-color: var(--text);
+        outline: none;
+      }
+
+      .card {
+        padding: 1.4rem;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .section {
+        padding: 2.5rem 0 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .two-up {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      ul {
+        padding-left: 1.2rem;
+      }
+
+      footer {
+        padding: 3rem 0 2.5rem;
+      }
+
+      @media (max-width: 800px) {
+        .hero-panel,
+        .two-up {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="wrap">
+      <p class="eyebrow">webpages.charlotte.edu/epohl</p>
+    </header>
+
+    <main id="main-content" class="wrap">
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero-panel">
+          <div>
+            <h1 id="home-title">Ethan Pohl</h1>
+            <p>
+              This homepage can act as your personal landing page on the UNC Charlotte web space.
+              It is a good place to introduce yourself and link to the parts of your site that
+              matter most.
+            </p>
+            <div class="cta-row">
+              <a class="button button-primary" href="/epohl/prism/">Visit Prism Site</a>
+              <a class="button button-secondary" href="mailto:epohl@charlotte.edu">Contact</a>
+            </div>
+            <p>
+              As you build this out, you can add a short bio, coursework, portfolio links, resume,
+              or project highlights.
+            </p>
+          </div>
+
+          <aside class="card" aria-labelledby="quick-links-title">
+            <h2 id="quick-links-title">Quick Links</h2>
+            <ul>
+              <li><a href="/epohl/prism/">Prism at UNC Charlotte</a></li>
+              <li><a href="context.md">Project Notes</a></li>
+              <li><a href="agents.md">Build Guidance</a></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section grid two-up" aria-labelledby="next-title">
+        <article class="card">
+          <h2 id="next-title">Why this structure is better</h2>
+          <p>
+            The root homepage should represent you, while Prism should live in its own folder so
+            its URL becomes a clear subsection: `webpages.charlotte.edu/epohl/prism/`.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Good web habit</h2>
+          <p>
+            Keeping separate projects in separate directories makes navigation, hosting, and future
+            maintenance much easier. It is the same basic idea as separating routes in a larger app.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      <p>UNC Charlotte web homepage for Ethan Pohl.</p>
+    </footer>
+  </body>
+</html>

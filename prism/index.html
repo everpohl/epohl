@@ -10,15 +10,22 @@
     <title>Prism at UNC Charlotte</title>
     <style>
       :root {
-        --surface: rgba(255, 255, 255, 0.78);
+        --surface: rgba(255, 255, 255, 0.82);
         --surface-strong: #ffffff;
-        --text: #1f1630;
-        --muted: #5f5570;
-        --border: rgba(58, 34, 90, 0.12);
-        --primary: #c2410c;
-        --primary-dark: #8f2d09;
+        --text: #24163a;
+        --muted: #5c5072;
+        --border: rgba(70, 39, 106, 0.14);
+        --primary: #8b5cf6;
+        --primary-dark: #6d28d9;
         --accent: #0f766e;
-        --shadow: 0 18px 40px rgba(49, 26, 76, 0.12);
+        --rainbow-red: rgba(239, 68, 68, 0.22);
+        --rainbow-orange: rgba(249, 115, 22, 0.2);
+        --rainbow-yellow: rgba(250, 204, 21, 0.18);
+        --rainbow-green: rgba(34, 197, 94, 0.18);
+        --rainbow-blue: rgba(59, 130, 246, 0.18);
+        --rainbow-violet: rgba(168, 85, 247, 0.2);
+        --rainbow-purple: rgba(126, 34, 206, 0.2);
+        --shadow: 0 18px 40px rgba(49, 26, 76, 0.14);
         --max-width: 1120px;
         --radius: 24px;
       }
@@ -37,9 +44,14 @@
         line-height: 1.6;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(250, 204, 21, 0.32), transparent 28%),
-          radial-gradient(circle at 85% 15%, rgba(15, 118, 110, 0.18), transparent 22%),
-          linear-gradient(180deg, #fff5dd 0%, #fff8ef 38%, #fffdf8 100%);
+          radial-gradient(circle at 4% 8%, var(--rainbow-red), transparent 23%),
+          radial-gradient(circle at 24% 0%, var(--rainbow-orange), transparent 24%),
+          radial-gradient(circle at 50% 12%, var(--rainbow-yellow), transparent 25%),
+          radial-gradient(circle at 72% 4%, var(--rainbow-green), transparent 24%),
+          radial-gradient(circle at 90% 10%, var(--rainbow-blue), transparent 22%),
+          radial-gradient(circle at 98% 20%, var(--rainbow-violet), transparent 20%),
+          radial-gradient(circle at 92% 78%, var(--rainbow-purple), transparent 24%),
+          linear-gradient(180deg, #fff8fb 0%, #fffdf9 42%, #ffffff 100%);
       }
 
       a {
@@ -118,7 +130,17 @@
         padding: clamp(1.5rem, 3vw, 3rem);
         border: 1px solid var(--border);
         border-radius: 2rem;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 245, 221, 0.92));
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.8)),
+          linear-gradient(
+            120deg,
+            rgba(239, 68, 68, 0.09) 0%,
+            rgba(249, 115, 22, 0.09) 18%,
+            rgba(250, 204, 21, 0.08) 35%,
+            rgba(34, 197, 94, 0.08) 54%,
+            rgba(59, 130, 246, 0.08) 73%,
+            rgba(168, 85, 247, 0.1) 100%
+          );
         box-shadow: var(--shadow);
       }
 
@@ -127,7 +149,16 @@
         margin-bottom: 1rem;
         padding: 0.35rem 0.75rem;
         border-radius: 999px;
-        background: rgba(250, 204, 21, 0.4);
+        background: linear-gradient(
+          90deg,
+          rgba(239, 68, 68, 0.18),
+          rgba(249, 115, 22, 0.18),
+          rgba(250, 204, 21, 0.18),
+          rgba(34, 197, 94, 0.18),
+          rgba(59, 130, 246, 0.18),
+          rgba(168, 85, 247, 0.2)
+        );
+        color: #4c1d95;
         font-size: 0.95rem;
         font-weight: 700;
       }
@@ -170,16 +201,23 @@
         padding: 0.9rem 1.2rem;
         border-radius: 999px;
         border: 2px solid transparent;
+        background-clip: padding-box;
       }
 
       .button-primary {
-        background: var(--primary);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 44%),
+          linear-gradient(135deg, #d8c7ff 0%, #b79afc 34%, var(--primary) 100%);
         color: #fff;
+        border: none;
+        box-shadow: 0 14px 28px rgba(109, 40, 217, 0.24);
       }
 
       .button-primary:hover,
       .button-primary:focus-visible {
-        background: var(--primary-dark);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 44%),
+          linear-gradient(135deg, #c4b5fd 0%, #9f7aea 34%, var(--primary-dark) 100%);
         outline: none;
       }
 
@@ -255,7 +293,7 @@
         margin-bottom: 0.75rem;
         font-size: 0.88rem;
         font-weight: 700;
-        color: var(--accent);
+        color: #6d28d9;
         text-transform: uppercase;
         letter-spacing: 0.06em;
       }
@@ -280,7 +318,17 @@
       .highlight-panel {
         padding: 1.5rem;
         border-radius: var(--radius);
-        background: linear-gradient(135deg, rgba(15, 118, 110, 0.95), rgba(20, 83, 45, 0.95));
+        background:
+          linear-gradient(rgba(53, 24, 93, 0.9), rgba(53, 24, 93, 0.9)),
+          linear-gradient(
+            135deg,
+            rgba(239, 68, 68, 0.9),
+            rgba(249, 115, 22, 0.9),
+            rgba(250, 204, 21, 0.85),
+            rgba(34, 197, 94, 0.85),
+            rgba(59, 130, 246, 0.85),
+            rgba(168, 85, 247, 0.9)
+          );
         color: #f8fffd;
         box-shadow: var(--shadow);
       }
@@ -347,7 +395,7 @@
       <a class="brand" href="/epohl/">Prism at UNC Charlotte</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="#about">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#resources">Resources</a></li>
           <li><a href="#connect">Connect</a></li>
@@ -379,7 +427,7 @@
           <aside class="hero-card" aria-labelledby="quick-info-title">
             <div>
               <span class="tag">Quick Start</span>
-              <h2 id="quick-info-title">What you can do here</h2>
+              <h2 id="quick-info-title">Start here</h2>
             </div>
             <ul>
               <li>Learn what Prism does on campus</li>
@@ -397,6 +445,9 @@
         <p class="section-intro">
           A strong student organization homepage should explain its purpose quickly. This section
           gives visitors an immediate sense of what Prism offers and why it matters.
+        </p>
+        <p>
+          <a class="button button-secondary" href="about.html">Meet the Leadership Team</a>
         </p>
         <div class="grid three-up">
           <article class="card">

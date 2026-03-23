@@ -101,33 +101,27 @@
         <span class="tag">Featured Events</span>
         <h2 id="events-title">Start with what’s happening next.</h2>
         <p class="section-intro">
-          Event information is usually one of the main reasons someone visits an org website, so
-          it deserves a clear, high-visibility place on the homepage.
+          Keep these featured cards updated as new events are announced, and use Niner Engage as
+          the official source for the full live calendar and event details.
         </p>
-        <div class="grid three-up">
-          <article class="card event-card">
-            <h3>General Body Meeting</h3>
-            <p class="event-meta">Tuesday, 6:00 PM • Student Union</p>
-            <p>
-              Meet new members, hear updates, and help shape upcoming Prism activities and goals.
-            </p>
-          </article>
-          <article class="card event-card">
-            <h3>Community Game Night</h3>
-            <p class="event-meta">Thursday, 7:00 PM • Cone Center</p>
-            <p>
-              A casual, low-pressure event focused on making friends and building community.
-            </p>
-          </article>
-          <article class="card event-card">
-            <h3>Advocacy Action Workshop</h3>
-            <p class="event-meta">Friday, 4:30 PM • Atkins Library</p>
-            <p>
-              Learn how Prism supports petitions, outreach, and letter-writing campaigns that
-              matter to students.
-            </p>
-          </article>
+        <div class="button-row">
+          <a
+            class="button button-primary"
+            data-prism-events-link
+            href="https://ninerengage.charlotte.edu/events"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Live Events on Niner Engage
+          </a>
         </div>
+        <noscript>
+          <p class="section-intro">
+            Enable JavaScript to load the featured events, or use the Niner Engage button above to
+            see the full event calendar.
+          </p>
+        </noscript>
+        <div class="grid three-up" id="featured-events"></div>
       </section>
 
       <section class="section" id="resources" aria-labelledby="resources-title">
@@ -177,5 +171,8 @@
         </p>
       </div>
     </footer>
+    <script src="scripts/site-links.js"></script>
+    <script src="scripts/events-data.js"></script>
+    <script src="scripts/render-events.js"></script>
   </body>
 </html>

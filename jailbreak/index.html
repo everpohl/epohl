@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="A lightweight jailbreak repository list with copy buttons designed for older Safari browsers."
+    />
+    <title>Jailbreak Setup Portal</title>
+    <style>
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #111111;
+        color: #f5f5f7;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 16px 32px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .subtitle {
+        margin: 10px 0 0;
+        font-size: 17px;
+        color: #b8b8be;
+      }
+
+      .repo-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .repo-item {
+        margin-bottom: 14px;
+      }
+
+      .card {
+        background: #1c1c1e;
+        border: 1px solid #2c2c2e;
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      }
+
+      .repo-name {
+        margin: 0 0 10px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .repo-actions {
+        display: table;
+        width: 100%;
+        border-spacing: 0;
+      }
+
+      .repo-url-wrap,
+      .repo-button-wrap {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .repo-button-wrap {
+        width: 1%;
+        padding-left: 10px;
+      }
+
+      .repo-url {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 14px;
+        border: 1px solid #38383a;
+        border-radius: 14px;
+        background: #2c2c2e;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 1.35;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .repo-url:focus {
+        outline: none;
+        border-color: #0a84ff;
+        box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.22);
+      }
+
+      .copy-button {
+        min-height: 46px;
+        padding: 0 16px;
+        border: 0;
+        border-radius: 14px;
+        background: #0a84ff;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .copy-button:active {
+        background: #0067d6;
+      }
+
+      .status {
+        margin-top: 10px;
+        min-height: 22px;
+        font-size: 14px;
+        color: #8ed0ff;
+      }
+
+      .footer {
+        margin-top: 28px;
+        text-align: center;
+        font-size: 14px;
+        color: #9d9da3;
+      }
+
+      @media screen and (max-width: 520px) {
+        .page {
+          padding: 20px 14px 28px;
+        }
+
+        .title {
+          font-size: 27px;
+        }
+
+        .repo-actions,
+        .repo-url-wrap,
+        .repo-button-wrap {
+          display: block;
+          width: 100%;
+        }
+
+        .repo-button-wrap {
+          padding-left: 0;
+          padding-top: 10px;
+        }
+
+        .copy-button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1 class="title">Jailbreak Setup Portal</h1>
+        <p class="subtitle">Quick repo links for older iPod touch Safari.</p>
+      </header>
+
+      <ul class="repo-list">
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Xen HTML</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://xenpublic.incendo.ws/"
+                  aria-label="Xen HTML repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Packix</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://repo.packix.com/"
+                  aria-label="Packix repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Chariz</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://repo.chariz.com/"
+                  aria-label="Chariz repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Bingner</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://apt.bingner.com/"
+                  aria-label="Bingner repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Dynastic</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://repo.dynastic.co/"
+                  aria-label="Dynastic repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Evynw Widgets</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://evynw.github.io/"
+                  aria-label="Evynw Widgets repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">MidnightChips</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <input
+                  class="repo-url"
+                  type="text"
+                  readonly
+                  value="https://midnightchips.me/"
+                  aria-label="MidnightChips repository URL"
+                />
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+      </ul>
+
+      <footer class="footer">Tap to copy. If it fails, tap and hold.</footer>
+    </main>
+
+    <script>
+      (function () {
+        function selectUrl(input) {
+          input.focus();
+          input.removeAttribute("readonly");
+          input.select();
+          if (input.setSelectionRange) {
+            input.setSelectionRange(0, input.value.length);
+          }
+          input.setAttribute("readonly", "readonly");
+        }
+
+        function clearStatuses(statuses) {
+          var i;
+          for (i = 0; i < statuses.length; i += 1) {
+            statuses[i].innerHTML = "";
+          }
+        }
+
+        function attachCopyHandlers() {
+          var buttons = document.getElementsByClassName("copy-button");
+          var inputs = document.getElementsByClassName("repo-url");
+          var statuses = document.getElementsByClassName("status");
+          var i;
+
+          for (i = 0; i < inputs.length; i += 1) {
+            (function (input) {
+              input.onclick = function () {
+                selectUrl(input);
+              };
+            })(inputs[i]);
+          }
+
+          for (i = 0; i < buttons.length; i += 1) {
+            (function (button, input, status) {
+              button.onclick = function () {
+                var copied = false;
+
+                clearStatuses(statuses);
+                selectUrl(input);
+
+                try {
+                  copied = document.execCommand("copy");
+                } catch (error) {
+                  copied = false;
+                }
+
+                if (copied) {
+                  status.innerHTML = "Copied to clipboard.";
+                } else {
+                  status.innerHTML = "Copy did not work. The link is selected for manual copy.";
+                }
+              };
+            })(buttons[i], inputs[i], statuses[i]);
+          }
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", attachCopyHandlers);
+        } else {
+          attachCopyHandlers();
+        }
+      })();
+    </script>
+  </body>
+</html>

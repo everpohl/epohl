@@ -283,6 +283,10 @@ p {
   gap: 1.25rem;
 }
 
+#featured-events {
+  margin-top: 1.5rem;
+}
+
 .three-up {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

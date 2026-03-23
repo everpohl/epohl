@@ -38,6 +38,14 @@
         margin-bottom: 24px;
       }
 
+      .header-link {
+        margin: 0 0 10px;
+      }
+
+      .header-link a {
+        color: #8ed0ff;
+      }
+
       .title {
         margin: 0;
         font-size: 30px;
@@ -112,6 +120,12 @@
         box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.22);
       }
 
+      .repo-url-multiline {
+        resize: none;
+        overflow: auto;
+        white-space: pre;
+      }
+
       .copy-button {
         min-height: 46px;
         padding: 0 16px;
@@ -174,11 +188,39 @@
   <body>
     <main class="page">
       <header class="header">
+        <p class="header-link"><a href="../sitemap.html">Website Sitemap</a></p>
         <h1 class="title">Jailbreak Setup Portal</h1>
         <p class="subtitle">Quick repo links for older iPod touch Safari.</p>
       </header>
 
       <ul class="repo-list">
+        <li class="repo-item">
+          <section class="card">
+            <h2 class="repo-name">Starter Repo Bundle</h2>
+            <div class="repo-actions">
+              <div class="repo-url-wrap">
+                <textarea
+                  class="repo-url repo-url-multiline"
+                  rows="8"
+                  readonly
+                  aria-label="Starter jailbreak repository bundle"
+                >https://repo.packix.com/
+https://repo.chariz.com/
+https://repo.dynastic.co/
+https://apt.bingner.com/
+https://julioverne.github.io/
+https://skitty.xyz/repo/
+https://cydia.akemi.ai/
+https://lukezgd.github.io/repo/</textarea>
+              </div>
+              <div class="repo-button-wrap">
+                <button class="copy-button" type="button">Copy All</button>
+              </div>
+            </div>
+            <div class="status" aria-live="polite"></div>
+          </section>
+        </li>
+
         <li class="repo-item">
           <section class="card">
             <h2 class="repo-name">Xen HTML</h2>
@@ -332,14 +374,22 @@
 
     <script>
       (function () {
-        function selectUrl(input) {
-          input.focus();
-          input.removeAttribute("readonly");
-          input.select();
-          if (input.setSelectionRange) {
-            input.setSelectionRange(0, input.value.length);
+        function setReadonlyState(field, enabled) {
+          if (enabled) {
+            field.setAttribute("readonly", "readonly");
+          } else {
+            field.removeAttribute("readonly");
           }
-          input.setAttribute("readonly", "readonly");
+        }
+
+        function selectUrl(field) {
+          field.focus();
+          setReadonlyState(field, false);
+          field.select();
+          if (field.setSelectionRange) {
+            field.setSelectionRange(0, field.value.length);
+          }
+          setReadonlyState(field, true);
         }
 
         function clearStatuses(statuses) {

@@ -329,6 +329,18 @@ p {
   background: var(--event-card-background);
 }
 
+.resource-card {
+  height: 100%;
+}
+
+.resource-label {
+  margin: 0 0 0.45rem;
+  color: var(--color-tag-text);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .event-meta {
   color: var(--color-muted);
 }
@@ -373,6 +385,11 @@ p {
 
 .highlight-panel p {
   color: rgba(248, 255, 253, 0.9);
+}
+
+.resource-button {
+  color: #fff8ef;
+  border-color: rgba(255, 248, 239, 0.42);
 }
 
 .site-footer {

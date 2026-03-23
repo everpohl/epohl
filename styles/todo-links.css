@@ -1,0 +1,67 @@
+/* =========================
+   TODO LINK SYSTEM
+   Drop-in stylesheet
+   ========================= */
+
+/* Base link cleanup (optional but recommended) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* -------------------------
+   TODO LINK STYLING
+   ------------------------- */
+
+/* Any placeholder link OR explicitly marked TODO */
+a[href="#"],
+a[data-status="todo"] {
+  color: #c2410c; /* accent color */
+  text-decoration: underline dotted;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Add visible label */
+a[href="#"]::after,
+a[data-status="todo"]::after {
+  content: " (todo)";
+  font-size: 0.8em;
+  color: #c2410c;
+  margin-left: 0.25rem;
+}
+
+/* Subtle hover effect */
+a[href="#"]:hover,
+a[data-status="todo"]:hover {
+  background: rgba(194, 65, 12, 0.08);
+}
+
+/* -------------------------
+   OPTIONAL: Disable clicks
+   (uncomment if you want)
+   ------------------------- */
+
+/*
+a[href="#"],
+a[data-status="todo"] {
+  pointer-events: none;
+}
+*/
+
+/* -------------------------
+   OPTIONAL: DEV MODE ONLY
+   (only show TODOs when body has class="dev")
+   ------------------------- */
+
+/*
+body:not(.dev) a[href="#"]::after,
+body:not(.dev) a[data-status="todo"]::after {
+  content: "";
+}
+*/

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="A super lightweight ChatGPT interface built for older mobile Safari browsers."
+    />
+    <title>ChatGPT Lite</title>
+    <style>
+      html {
+        height: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        height: 100%;
+        margin: 0;
+        background: #ffffff;
+        color: #1f1f1f;
+        font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .app {
+        height: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 12px;
+      }
+
+      .panel {
+        height: 100%;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      .panel-row {
+        display: table-row;
+      }
+
+      .header {
+        padding: 8px 0 12px;
+      }
+
+      .header-links {
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      .header-links a {
+        color: #2f6fed;
+        font-size: 14px;
+      }
+
+      .title {
+        margin: 0;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .chat-wrap {
+        height: 100%;
+      }
+
+      .chat-area {
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px 0 12px;
+      }
+
+      .message {
+        margin: 0 0 10px;
+        padding: 12px 14px;
+        background: #f1f1f3;
+        border-radius: 16px;
+        font-size: 16px;
+        line-height: 1.45;
+        word-wrap: break-word;
+      }
+
+      .message-user {
+        background: #e9eefc;
+      }
+
+      .message-assistant {
+        background: #f1f1f3;
+      }
+
+      .message-system {
+        background: #fff7df;
+        color: #5b4a00;
+      }
+
+      .message-label {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .composer {
+        padding-top: 10px;
+      }
+
+      .composer-form {
+        display: table;
+        width: 100%;
+        border-spacing: 0;
+      }
+
+      .composer-input-wrap,
+      .composer-button-wrap {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .composer-button-wrap {
+        width: 1%;
+        padding-left: 8px;
+      }
+
+      .composer-input {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 14px;
+        border: 1px solid #d7d7db;
+        border-radius: 14px;
+        background: #ffffff;
+        color: #1f1f1f;
+        font-size: 16px;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .composer-input:focus {
+        outline: none;
+        border-color: #7b98ff;
+      }
+
+      .send-button {
+        min-height: 46px;
+        padding: 0 16px;
+        border: 0;
+        border-radius: 14px;
+        background: #2f6fed;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .send-button:active {
+        background: #2057bf;
+      }
+
+      .send-button[disabled] {
+        background: #b8c6ef;
+        color: #ffffff;
+      }
+
+      .footer-note {
+        margin: 8px 2px 0;
+        font-size: 12px;
+        line-height: 1.4;
+        color: #6c6c72;
+      }
+
+      @media screen and (max-width: 540px) {
+        .app {
+          padding: 10px;
+        }
+
+        .title {
+          font-size: 24px;
+        }
+
+        .composer-form,
+        .composer-input-wrap,
+        .composer-button-wrap {
+          display: block;
+          width: 100%;
+        }
+
+        .composer-button-wrap {
+          padding-left: 0;
+          padding-top: 8px;
+        }
+
+        .send-button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <div class="panel">
+        <div class="panel-row">
+          <header class="header">
+            <p class="header-links"><a href="sitemap.html">Website Sitemap</a></p>
+            <h1 class="title">ChatGPT Lite</h1>
+          </header>
+        </div>
+
+        <div class="panel-row chat-wrap">
+          <section
+            id="chat"
+            class="chat-area"
+            aria-live="polite"
+            aria-label="Chat messages"
+          >
+            <div class="message message-system">
+              <span class="message-label">Info</span>
+              Add your OpenAI API key in the script, then send a message.
+            </div>
+          </section>
+        </div>
+
+        <div class="panel-row">
+          <footer class="composer">
+            <form id="chat-form" class="composer-form">
+              <div class="composer-input-wrap">
+                <label for="message-input" class="message-label">Message</label>
+                <input
+                  id="message-input"
+                  class="composer-input"
+                  type="text"
+                  autocomplete="off"
+                  autocapitalize="sentences"
+                  placeholder="Type a message"
+                />
+              </div>
+              <div class="composer-button-wrap">
+                <label class="message-label" for="send-button">Action</label>
+                <button id="send-button" class="send-button" type="submit">Send</button>
+              </div>
+            </form>
+            <p class="footer-note">
+              This page is intentionally simple for older Safari browsers. For safety, use a proxy
+              server if you do not want your API key exposed in the page source.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      var API_KEY = "PASTE_OPENAI_API_KEY_HERE";
+      var API_URL = "https://api.openai.com/v1/chat/completions";
+      var MODEL = "gpt-4o-mini";
+      var chatEl = document.getElementById("chat");
+      var formEl = document.getElementById("chat-form");
+      var inputEl = document.getElementById("message-input");
+      var sendButtonEl = document.getElementById("send-button");
+      var isSending = false;
+
+      function escapeHtml(text) {
+        return String(text)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function addMessage(role, text) {
+        var wrapper = document.createElement("div");
+        var label = document.createElement("span");
+        var body = document.createElement("div");
+        var labelText = "Assistant";
+
+        wrapper.className = "message message-" + role;
+        label.className = "message-label";
+
+        if (role === "user") {
+          labelText = "You";
+        } else if (role === "system") {
+          labelText = "Error";
+        }
+
+        label.appendChild(document.createTextNode(labelText));
+        body.innerHTML = escapeHtml(text).replace(/\n/g, "<br />");
+        wrapper.appendChild(label);
+        wrapper.appendChild(body);
+        chatEl.appendChild(wrapper);
+        scrollChatToBottom();
+      }
+
+      function scrollChatToBottom() {
+        chatEl.scrollTop = chatEl.scrollHeight;
+      }
+
+      function setSendingState(nextState) {
+        isSending = nextState;
+        sendButtonEl.disabled = nextState;
+        sendButtonEl.innerHTML = nextState ? "Sending..." : "Send";
+      }
+
+      function extractAssistantText(responseData) {
+        if (
+          responseData &&
+          responseData.choices &&
+          responseData.choices.length &&
+          responseData.choices[0].message &&
+          typeof responseData.choices[0].message.content === "string"
+        ) {
+          return responseData.choices[0].message.content;
+        }
+
+        return "No response text was returned.";
+      }
+
+      function handleApiSuccess(responseText) {
+        var data;
+        var assistantText;
+
+        try {
+          data = JSON.parse(responseText);
+        } catch (error) {
+          addMessage("system", "The server returned invalid JSON.");
+          setSendingState(false);
+          return;
+        }
+
+        assistantText = extractAssistantText(data);
+        addMessage("assistant", assistantText);
+        setSendingState(false);
+      }
+
+      function handleApiError(statusCode, responseText) {
+        var message = "Request failed.";
+        var data;
+
+        if (responseText) {
+          try {
+            data = JSON.parse(responseText);
+
+            if (data && data.error && data.error.message) {
+              message = data.error.message;
+            }
+          } catch (error) {}
+        }
+
+        if (statusCode) {
+          message = "Error " + statusCode + ": " + message;
+        }
+
+        addMessage("system", message);
+        setSendingState(false);
+      }
+
+      function sendWithXhr(payloadText) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", API_URL, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Authorization", "Bearer " + API_KEY);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState !== 4) {
+            return;
+          }
+
+          if (xhr.status >= 200 && xhr.status < 300) {
+            handleApiSuccess(xhr.responseText);
+          } else {
+            handleApiError(xhr.status, xhr.responseText);
+          }
+        };
+
+        xhr.onerror = function () {
+          handleApiError(0, "");
+        };
+
+        xhr.send(payloadText);
+      }
+
+      function sendWithFetch(payloadText) {
+        fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + API_KEY
+          },
+          body: payloadText
+        })
+          .then(function (response) {
+            return response.text().then(function (text) {
+              if (response.ok) {
+                handleApiSuccess(text);
+              } else {
+                handleApiError(response.status, text);
+              }
+            });
+          })
+          .catch(function () {
+            handleApiError(0, "");
+          });
+      }
+
+      function sendMessage(messageText) {
+        var payload;
+        var payloadText;
+
+        if (!API_KEY || API_KEY === "PASTE_OPENAI_API_KEY_HERE") {
+          addMessage("system", "Add your API key before sending a message.");
+          return;
+        }
+
+        payload = {
+          model: MODEL,
+          messages: [
+            {
+              role: "user",
+              content: messageText
+            }
+          ]
+        };
+
+        payloadText = JSON.stringify(payload);
+        setSendingState(true);
+
+        if (window.fetch) {
+          sendWithFetch(payloadText);
+        } else {
+          sendWithXhr(payloadText);
+        }
+      }
+
+      formEl.onsubmit = function (event) {
+        var value = inputEl.value.replace(/^\s+|\s+$/g, "");
+
+        if (event && event.preventDefault) {
+          event.preventDefault();
+        }
+
+        if (isSending || !value) {
+          return false;
+        }
+
+        addMessage("user", value);
+        inputEl.value = "";
+        sendMessage(value);
+        return false;
+      };
+
+      scrollChatToBottom();
+    </script>
+  </body>
+</html>

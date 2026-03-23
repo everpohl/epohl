@@ -32,6 +32,7 @@
         font-family: Georgia, "Times New Roman", serif;
         line-height: 1.6;
         color: var(--text);
+        overflow-wrap: break-word;
         background:
           radial-gradient(circle at top left, rgba(15, 118, 110, 0.15), transparent 30%),
           radial-gradient(circle at right, rgba(194, 65, 12, 0.12), transparent 25%),
@@ -125,6 +126,7 @@
         text-decoration: none;
         font-weight: 700;
         border: 2px solid transparent;
+        text-align: center;
       }
 
       .button-primary {
@@ -183,7 +185,40 @@
           grid-template-columns: 1fr;
         }
       }
+
+      @media (max-width: 480px) {
+        .wrap {
+          width: min(calc(100% - 1.25rem), var(--max-width));
+        }
+
+        .hero {
+          padding-top: 1.5rem;
+        }
+
+        .hero-panel,
+        .card {
+          padding: 1.25rem;
+          border-radius: 1.6rem;
+        }
+
+        h1 {
+          font-size: clamp(2rem, 11vw, 2.6rem);
+        }
+
+        h2 {
+          font-size: clamp(1.55rem, 8vw, 2rem);
+        }
+
+        .cta-row {
+          flex-direction: column;
+        }
+
+        .cta-row .button {
+          width: 100%;
+        }
+      }
     </style>
+    <link rel="stylesheet" href="/styles/todo-links.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -198,14 +233,24 @@
           <div>
             <h1 id="home-title">Everett Pohl</h1>
             <p>
-              This homepage can act as your personal landing page on the UNC Charlotte web space.
-              It is a good place to introduce yourself and link to the parts of your site that
-              matter most.
+              Hello! My name is Everett Pohl, I'm a junior at UNC Charlotte, and welcome to my personal website. 
+              I am a double-major in Computer Science with a concentration in Human-Computer Interaction and 
+              Communication Studies with a concentration in Media & Technology. I am a lead instructional assistant 
+              (basically an undergrad TA) for <a href="#" title="TODO: add course page link" data-status="todo" data-todo="Add course page link for ITSC 2214" data-category="content">ITSC 2214: Data Structures and Algorithims</a>, and am also Outreach Coordinator
+              for Prism, the LGBT student organization at UNC Charlotte. You can reach me at <a href="mailto:epohl@charlotte.edu">epohl@charlotte.edu</a>. 
             </p>
             <div class="cta-row">
               <a class="button button-primary" href="/epohl/prism/">Visit Prism Site</a>
+              <a class="button button-secondary" href="sitemap.html">Sitemap</a>
               <a class="button button-secondary" href="mailto:epohl@charlotte.edu">Contact</a>
             </div>
+            <p>              
+              <!-- TODO: Add links to resume, portfolio, and GitHub -->
+              Future links: 
+              <a href="#" title="TODO: add resume link" data-status="todo" data-todo="Add resume link" data-category="content">Resume</a> |
+              <a href="#" title="TODO: add portfolio link" data-status="todo" data-todo="Add portfolio link" data-category="content">Portfolio</a> |
+              <a href="#" title="TODO: add GitHub link" data-status="todo" data-todo="Add GitHub link" data-category="content">GitHub</a>
+            </p>
             <p>
               As you build this out, you can add a short bio, coursework, portfolio links, resume,
               or project highlights.
@@ -216,21 +261,15 @@
             <h2 id="quick-links-title">Quick Links</h2>
             <ul>
               <li><a href="/epohl/prism/">Prism at UNC Charlotte</a></li>
-              <li><a href="context.md">Project Notes</a></li>
-              <li><a href="agents.md">Build Guidance</a></li>
+              <li><a href="sitemap.html">Website Sitemap</a></li>
+              <li><a href="notes/project-context.md">Project Notes</a></li>
+              <li><a href="prism/agents.md">Build Guidance</a></li>
             </ul>
           </aside>
         </div>
       </section>
 
       <section class="section grid two-up" aria-labelledby="next-title">
-        <article class="card">
-          <h2 id="next-title">Why this structure is better</h2>
-          <p>
-            The root homepage should represent you, while Prism should live in its own folder so
-            its URL becomes a clear subsection: `webpages.charlotte.edu/epohl/prism/`.
-          </p>
-        </article>
 
         <article class="card">
           <h2>Good web habit</h2>

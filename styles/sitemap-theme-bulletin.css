@@ -1,0 +1,292 @@
+:root {
+  --sitemap-bg:
+    radial-gradient(circle at 8% 10%, rgba(244, 63, 94, 0.16), transparent 20%),
+    radial-gradient(circle at 92% 12%, rgba(59, 130, 246, 0.16), transparent 20%),
+    radial-gradient(circle at 30% 88%, rgba(234, 179, 8, 0.14), transparent 24%),
+    linear-gradient(180deg, #fff8ef 0%, #fffdf8 100%);
+  --sitemap-panel: rgba(255, 253, 248, 0.9);
+  --sitemap-text: #2d1630;
+  --sitemap-muted: #6e556e;
+  --sitemap-border: rgba(120, 56, 115, 0.18);
+  --sitemap-link: #b4235f;
+  --sitemap-link-hover: #7a123e;
+  --sitemap-max-width: 1140px;
+  --sitemap-radius: 1.4rem;
+  --sitemap-font: "Trebuchet MS", "Segoe UI", sans-serif;
+  --sitemap-panel-shadow: 0 22px 42px rgba(87, 40, 89, 0.12);
+  --sitemap-chip-bg: rgba(180, 35, 95, 0.12);
+  --sitemap-hero-bg:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.86)),
+    linear-gradient(
+      120deg,
+      rgba(244, 63, 94, 0.18),
+      rgba(249, 115, 22, 0.14),
+      rgba(234, 179, 8, 0.12),
+      rgba(59, 130, 246, 0.12)
+    );
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(180, 35, 95, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 35, 95, 0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 85%);
+}
+
+.sitemap-shell {
+  gap: 1.25rem;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: auto -40px -40px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(180, 35, 95, 0.12), transparent 68%);
+  pointer-events: none;
+}
+
+.panel--hero {
+  padding: 2rem;
+}
+
+.panel--hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+.panel--hero p:last-child {
+  max-width: 56ch;
+  font-size: 1.05rem;
+}
+
+.section-top {
+  margin-bottom: 1.1rem;
+}
+
+.section-top h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: 0.01em;
+}
+
+.section-note {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(122, 18, 62, 0.08);
+}
+
+.link-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.sitemap-link {
+  position: relative;
+  min-height: 122px;
+  border-width: 2px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.7)),
+    linear-gradient(135deg, rgba(244, 63, 94, 0.08), rgba(59, 130, 246, 0.06));
+}
+
+.sitemap-link::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f43f5e, #f59e0b, #3b82f6);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.sitemap-link:hover,
+.sitemap-link:focus-visible {
+  transform: translateY(-4px) rotate(-0.4deg);
+  box-shadow: 0 18px 30px rgba(87, 40, 89, 0.16);
+}
+
+.link-title {
+  padding-right: 1.5rem;
+  font-size: 1.02rem;
+}
+
+.link-meta {
+  margin-top: 0.45rem;
+  max-width: 24ch;
+}
+
+@media (min-width: 900px) {
+  main {
+    width: min(calc(100% - 2rem), 1360px);
+    margin: 0 auto;
+  }
+
+  .sitemap-shell {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.4rem 1.2rem;
+    align-items: start;
+  }
+
+  .panel {
+    transform-origin: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .panel:nth-child(1) {
+    grid-column: 1 / 8;
+  }
+
+  .panel:nth-child(2) {
+    grid-column: 1 / 10;
+    transform: translateY(0.5rem) rotate(-0.4deg);
+  }
+
+  .panel:nth-child(3) {
+    grid-column: 9 / 13;
+    transform: translateY(-4.5rem) rotate(0.6deg);
+  }
+
+  .panel:nth-child(4) {
+    grid-column: 2 / 7;
+    transform: translateY(-2.2rem) rotate(-0.5deg);
+  }
+
+  .panel:nth-child(5) {
+    grid-column: 7 / 13;
+    transform: translateY(-6rem) rotate(0.45deg);
+  }
+
+  .panel:nth-child(6) {
+    grid-column: 3 / 11;
+    transform: translateY(-4.2rem) rotate(-0.35deg);
+  }
+
+  .section-top {
+    margin-bottom: 1.2rem;
+  }
+
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1rem 1.1rem;
+  }
+
+  .sitemap-link {
+    grid-column: span 4;
+    min-height: 122px;
+    transform: none;
+  }
+
+  .panel:nth-child(2) .sitemap-link {
+    grid-column: span 4;
+  }
+
+  .panel:nth-child(3) .sitemap-link {
+    grid-column: 1 / -1;
+  }
+
+  .panel:nth-child(4) .sitemap-link {
+    grid-column: span 4;
+  }
+
+  .panel:nth-child(5) .sitemap-link {
+    grid-column: span 4;
+  }
+
+  .panel:nth-child(6) .sitemap-link {
+    grid-column: span 6;
+  }
+
+  .sitemap-link:hover,
+  .sitemap-link:focus-visible {
+    transform: translateY(-6px) scale(1.01);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1180px) {
+  .sitemap-shell {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .panel:nth-child(1) {
+    grid-column: 1 / 7;
+  }
+
+  .panel:nth-child(2) {
+    grid-column: 1 / 9;
+    transform: translateY(0.25rem) rotate(-0.35deg);
+  }
+
+  .panel:nth-child(3) {
+    grid-column: 5 / 9;
+    transform: translateY(-1rem) rotate(0.45deg);
+  }
+
+  .panel:nth-child(4) {
+    grid-column: 1 / 6;
+    transform: translateY(-0.5rem) rotate(-0.4deg);
+  }
+
+  .panel:nth-child(5) {
+    grid-column: 3 / 9;
+    transform: translateY(-1.8rem) rotate(0.35deg);
+  }
+
+  .panel:nth-child(6) {
+    grid-column: 2 / 8;
+    transform: translateY(-1rem) rotate(-0.3deg);
+  }
+
+  .link-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .sitemap-link {
+    grid-column: span 3;
+  }
+
+  .panel:nth-child(2) .sitemap-link {
+    grid-column: span 3;
+  }
+
+  .panel:nth-child(3) .sitemap-link {
+    grid-column: 1 / -1;
+  }
+
+  .panel:nth-child(4) .sitemap-link {
+    grid-column: span 2;
+  }
+
+  .panel:nth-child(5) .sitemap-link {
+    grid-column: span 2;
+  }
+
+  .panel:nth-child(6) .sitemap-link {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel--hero {
+    padding: 1.4rem;
+  }
+}

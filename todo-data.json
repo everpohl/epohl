@@ -1,79 +1,65 @@
 {
-  "generatedAt": "2026-03-23",
+  "generatedAt": "2026-03-24T00:00:53.554Z",
+  "generator": "scripts/generate-todo-data.mjs",
+  "strategy": "scan-html",
   "pages": [
     {
       "path": "index.html",
-      "title": "Home"
-    },
-    {
-      "path": "prism/index.html",
-      "title": "Prism Home"
-    },
-    {
-      "path": "todo.html",
-      "title": "TODO Dashboard"
+      "title": "Everett Pohl | UNC Charlotte",
+      "taskCount": 4
     }
   ],
   "tasks": [
     {
-      "id": "home-course-link",
+      "id": "index-comment-add-links-to-resume-portfolio-and-github-248",
       "page": "index.html",
-      "pageTitle": "Home",
-      "category": "content",
+      "pageTitle": "Everett Pohl | UNC Charlotte",
+      "category": "uncategorized",
       "status": "todo",
-      "description": "Add the course page link for ITSC 2214: Data Structures and Algorithms.",
-      "selector": "a[data-todo=\"Add course page link for ITSC 2214\"]",
-      "priority": "medium"
+      "description": "Add links to resume, portfolio, and GitHub",
+      "selector": "comment:248",
+      "anchor": "?todo-line=248&todo-kind=comment",
+      "sourceType": "comment",
+      "line": 248
     },
     {
-      "id": "home-resume-link",
+      "id": "index-link-add-resume-link-250",
       "page": "index.html",
-      "pageTitle": "Home",
+      "pageTitle": "Everett Pohl | UNC Charlotte",
       "category": "content",
       "status": "todo",
-      "description": "Add the resume link in the future links section.",
+      "description": "Add resume link",
       "selector": "a[data-todo=\"Add resume link\"]",
-      "priority": "high"
+      "anchor": "?todo-line=250&todo-kind=link",
+      "sourceType": "link",
+      "line": 250,
+      "label": "Resume"
     },
     {
-      "id": "home-portfolio-link",
+      "id": "index-link-add-portfolio-link-251",
       "page": "index.html",
-      "pageTitle": "Home",
+      "pageTitle": "Everett Pohl | UNC Charlotte",
       "category": "content",
       "status": "todo",
-      "description": "Add the portfolio link in the future links section.",
+      "description": "Add portfolio link",
       "selector": "a[data-todo=\"Add portfolio link\"]",
-      "priority": "high"
+      "anchor": "?todo-line=251&todo-kind=link",
+      "sourceType": "link",
+      "line": 251,
+      "label": "Portfolio"
     },
     {
-      "id": "home-github-link",
+      "id": "index-link-add-github-link-252",
       "page": "index.html",
-      "pageTitle": "Home",
+      "pageTitle": "Everett Pohl | UNC Charlotte",
       "category": "content",
       "status": "todo",
-      "description": "Add the GitHub link in the future links section.",
+      "description": "Add GitHub link",
       "selector": "a[data-todo=\"Add GitHub link\"]",
-      "priority": "high"
-    },
-    {
-      "id": "prism-connect-audit",
-      "page": "prism/index.html",
-      "pageTitle": "Prism Home",
-      "category": "design",
-      "status": "done",
-      "description": "Review the homepage connect panel so the primary action stays visible on mobile.",
-      "selector": "#connect",
-      "priority": "low"
-    },
-    {
-      "id": "dashboard-empty-states",
-      "page": "todo.html",
-      "pageTitle": "TODO Dashboard",
-      "category": "feature",
-      "status": "done",
-      "description": "Create grouped dashboard views for tasks by page and by category.",
-      "selector": "#todo-dashboard",
-      "priority": "medium"
+      "anchor": "?todo-line=252&todo-kind=link",
+      "sourceType": "link",
+      "line": 252,
+      "label": "GitHub"
     }
   ]
 }

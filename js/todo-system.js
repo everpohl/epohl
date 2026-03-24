@@ -179,6 +179,19 @@ function renderProgress(root, tasks) {
   }
 }
 
+function renderGeneratedMeta(root, data) {
+  const metaTarget = root.querySelector("[data-todo-generated-meta]");
+  if (!metaTarget) return;
+
+  const generatedAt = data.generatedAt ? new Date(data.generatedAt) : null;
+  const generatedLabel =
+    generatedAt && !Number.isNaN(generatedAt.getTime())
+      ? generatedAt.toLocaleString()
+      : "Unknown";
+
+  metaTarget.textContent = `Last generated: ${generatedLabel}`;
+}
+
 function renderAllTasks(root, tasks) {
   const allTasks = root.querySelector("[data-todo-all]");
   if (!allTasks) return;
@@ -256,6 +269,7 @@ export async function renderTodoDashboard(root, options = {}) {
     });
   }
 
+  renderGeneratedMeta(root, data);
   attachToggleHandlers(root, () => getMergedTasks(data), refresh);
   refresh();
 }

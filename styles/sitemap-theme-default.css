@@ -1,0 +1,12 @@
+:root {
+  --sitemap-bg: #f6f3ee;
+  --sitemap-panel: #ffffff;
+  --sitemap-text: #1f1727;
+  --sitemap-muted: #5f5668;
+  --sitemap-border: rgba(31, 23, 39, 0.12);
+  --sitemap-link: #0f766e;
+  --sitemap-link-hover: #115e59;
+  --sitemap-max-width: 960px;
+  --sitemap-radius: 1rem;
+  --sitemap-font: Georgia, "Times New Roman", serif;
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Quick reference links for ITSC 2214."
+    />
+    <title>ITSC 2214 Resources</title>
+    <style>
+      :root {
+        --page: #ece7dc;
+        --sheet: #fcfbf7;
+        --ink: #24211d;
+        --muted: #686258;
+        --line: #d8d1c4;
+        --accent: #1f5c4d;
+        --accent-soft: #e1eee9;
+        --max-width: 980px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)),
+          var(--page);
+        color: var(--ink);
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      a:hover,
+      a:focus-visible {
+        color: #163f35;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        padding: 0.7rem 0.9rem;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 0.5rem;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .wrap {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .page {
+        padding: 1.5rem 0 3rem;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .topbar a {
+        text-decoration: none;
+      }
+
+      .sheet {
+        padding: clamp(1.25rem, 3vw, 2.4rem);
+        border: 1px solid rgba(36, 33, 29, 0.12);
+        border-radius: 1.1rem;
+        background: var(--sheet);
+        box-shadow: 0 14px 40px rgba(54, 45, 33, 0.08);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 600;
+      }
+
+      h1 {
+        margin-bottom: 0.35rem;
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
+      }
+
+      h2 {
+        margin-bottom: 0.6rem;
+        font-size: clamp(1.35rem, 3vw, 1.9rem);
+      }
+
+      h3 {
+        margin-bottom: 0.45rem;
+        font-size: 1.05rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+      }
+
+      .eyebrow {
+        margin-bottom: 0.5rem;
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .intro {
+        max-width: 58ch;
+        margin-bottom: 2rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr);
+        gap: 1.25rem;
+      }
+
+      .section-box {
+        padding-top: 0.25rem;
+      }
+
+      .resource-list {
+        display: grid;
+        gap: 0.9rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .resource-list > li,
+      .resource-item {
+        padding: 0.9rem 1rem;
+        border: 1px solid var(--line);
+        border-radius: 0.8rem;
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .resource-list > li > *:last-child,
+      .resource-item > *:last-child {
+        margin-bottom: 0;
+      }
+
+      .resource-tag {
+        display: inline-block;
+        margin-bottom: 0.45rem;
+        padding: 0.2rem 0.45rem;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .resource-link {
+        font-weight: 700;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.15em;
+      }
+
+      .note-box {
+        padding: 0.9rem 1rem;
+        border: 1px solid var(--line);
+        border-radius: 0.8rem;
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .note-box + .note-box {
+        margin-top: 0.9rem;
+      }
+
+      ul {
+        padding-left: 1.1rem;
+      }
+
+      footer {
+        margin-top: 1.5rem;
+        font-size: 0.94rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="wrap page">
+      <header class="topbar">
+        <a href="index.html">Home</a>
+        <a href="sitemap.html">Sitemap</a>
+      </header>
+
+      <main id="main-content" class="sheet">
+        <p class="eyebrow">ITSC 2214</p>
+        <h1>Quick resources</h1>
+        <p class="intro">
+          Just a small page for links that come up often. I only have one on here right now, but
+          more can be added later as needed.
+        </p>
+
+        <div class="grid">
+          <section class="section-box" aria-labelledby="resource-list-title">
+            <h2 id="resource-list-title">Links</h2>
+            <ul class="resource-list">
+              <li class="resource-item">
+                <span class="resource-tag">JUnit</span>
+                <h3>How to assert exceptions in JUnit 4 with the expected attribute.</h3>
+                <p>
+                  Useful if don't know or need a refresher on how to test exceptions for the projects using junit 4. 
+                  While you might have junit 5 locally on your machine, web-cat doesn't support it so you won't be able to use assertThrows. 
+                  Using this will allow you to use the expected attribute like this: @Test(expected = Exception.class). Make sure to 
+                  not use a try/catch in your test case, as that will result in the test failing since the exception will be caught. 
+                </p>
+                <a
+                  class="resource-link"
+                  href="https://www.geeksforgeeks.org/advance-java/how-to-assert-exceptions-in-junit-4-and-junit-5/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open article
+                </a>
+              </li>
+              <li>
+                <span class="resource-tag">UNC Charlotte</span>
+                <h3>How to host your own website with the University</h3>
+                <p data-status="todo" data-category="content"> add description</p>
+                <a
+                    class="resource-link"
+                    href="https://hosting.charlotte.edu/"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                  Open article
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <aside class="section-box" aria-labelledby="notes-title">
+            <h2 id="notes-title">Notes</h2>
+            <div class="note-box">
+              <p>
+                This page is meant to stay simple. If a link is useful for class, it can go here.
+              </p>
+            </div>
+            <div class="note-box">
+              <p>Possible additions later:</p>
+              <ul>
+                <li>Big-O reference sheets</li>
+                <li>Javadocs quick references</li>
+                <li>Junit testing examples</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer>
+        <p>ITSC 2214 resource page by Everett Pohl.</p>
+      </footer>
+    </div>
+  </body>
+</html>

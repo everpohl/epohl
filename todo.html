@@ -339,9 +339,9 @@
               <span class="eyebrow">Static Site Workflow</span>
               <h1>Site TODO Dashboard</h1>
               <p>
-                This page reads a shared JSON file and gives you one place to track unfinished
-                work across the whole site. The JSON stays source-controlled, while personal
-                progress toggles can be saved locally in your browser.
+                This page reads a generated JSON file and gives you one place to track unfinished
+                work across the whole site. The JSON is rebuilt by scanning your HTML, while
+                personal progress toggles can still be saved locally in your browser.
               </p>
             </div>
 
@@ -359,6 +359,7 @@
                 <div class="progress-fill" data-todo-progress-bar></div>
               </div>
               <p data-todo-progress-summary>0 of 0 tasks finished</p>
+              <p class="status-note" data-todo-generated-meta>Last generated: waiting for data</p>
               <p class="status-note">
                 Tip: “Mark as done” uses <code>localStorage</code> so you can test progress
                 without rewriting the JSON every time.
@@ -370,8 +371,8 @@
             <article class="panel">
               <h2>Shared Source</h2>
               <p>
-                Canonical TODO data lives in <code>/todo-data.json</code>, which keeps the system
-                simple for a static site.
+                Canonical TODO data is generated into <code>/todo-data.json</code> by scanning the
+                site with <code>/scripts/generate-todo-data.mjs</code>.
               </p>
             </article>
             <article class="panel">

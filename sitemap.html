@@ -8,76 +8,14 @@
       content="Simple sitemap for quickly opening any page on Everett Pohl's website and the Prism site."
     />
     <title>Website Sitemap</title>
-    <style>
-      :root {
-        --bg: #f6f3ee;
-        --panel: #ffffff;
-        --text: #1f1727;
-        --muted: #5f5668;
-        --border: rgba(31, 23, 39, 0.12);
-        --link: #0f766e;
-        --link-hover: #115e59;
-        --max-width: 960px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        line-height: 1.6;
-        color: var(--text);
-        background: var(--bg);
-      }
-
-      main {
-        width: min(calc(100% - 2rem), var(--max-width));
-        margin: 0 auto;
-        padding: 2rem 0 3rem;
-      }
-
-      .panel {
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: var(--panel);
-      }
-
-      h1,
-      h2 {
-        line-height: 1.15;
-        margin-top: 0;
-      }
-
-      p {
-        color: var(--muted);
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 1.2rem;
-      }
-
-      li + li {
-        margin-top: 0.45rem;
-      }
-
-      a {
-        color: var(--link);
-      }
-
-      a:hover,
-      a:focus-visible {
-        color: var(--link-hover);
-      }
-    </style>
+    <link rel="stylesheet" href="styles/sitemap-base.css" />
+    <link rel="stylesheet" href="styles/sitemap-theme-bulletin.css" />
   </head>
   <body>
     <main>
-      <section class="panel" aria-labelledby="sitemap-title">
+      <div class="sitemap-shell">
+      <section class="panel panel--hero" aria-labelledby="sitemap-title">
+        <p class="eyebrow">Internal Navigation Board</p>
         <h1 id="sitemap-title">Website Sitemap</h1>
         <p>
           This page is a simple internal shortcut page so you can jump straight to any existing
@@ -86,40 +24,118 @@
       </section>
 
       <section class="panel" aria-labelledby="root-pages-title">
-        <h2 id="root-pages-title">Root Pages</h2>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chatgpt-lite.html">ChatGPT Lite</a></li>
-          <li><a href="jailbreak/index.html">Jailbreak</a></li>
-          <li><a href="prism/index.html">Prism Home</a></li>
-        </ul>
+        <div class="section-top">
+          <h2 id="root-pages-title">Root Pages</h2>
+          <p class="section-note">Core entry points</p>
+        </div>
+        <div class="link-grid">
+          <a class="sitemap-link" href="index.html">
+            <span class="link-title">Home</span>
+            <span class="link-meta">Main landing page</span>
+          </a>
+          <a class="sitemap-link" href="itsc2214.html">
+            <span class="link-title">ITSC 2214 Resources</span>
+            <span class="link-meta">Course reference page</span>
+          </a>
+          <a class="sitemap-link" href="todo.html">
+            <span class="link-title">Site TODO Dashboard</span>
+            <span class="link-meta">Work tracking page</span>
+          </a>
+          <a class="sitemap-link" href="chatgpt-lite.html">
+            <span class="link-title">ChatGPT Lite</span>
+            <span class="link-meta">Utility page</span>
+          </a>
+          <a class="sitemap-link" href="jailbreak/index.html">
+            <span class="link-title">Jailbreak</span>
+            <span class="link-meta">Standalone tool page</span>
+          </a>
+          <a class="sitemap-link" href="prism/index.html">
+            <span class="link-title">Prism Home</span>
+            <span class="link-meta">Student org section</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="documents-title">
+        <div class="section-top">
+          <h2 id="documents-title">Documents</h2>
+          <p class="section-note">Direct file access</p>
+        </div>
+        <div class="link-grid">
+          <a class="sitemap-link" href="Everett's Resume Spring 2026.pdf">
+            <span class="link-title">Resume PDF</span>
+            <span class="link-meta">Spring 2026 resume file</span>
+          </a>
+        </div>
       </section>
 
       <section class="panel" aria-labelledby="notes-pages-title">
-        <h2 id="notes-pages-title">Notes</h2>
-        <ul>
-          <li><a href="notes/project-context.md">Project Context</a></li>
-          <li><a href="notes/eboard-questionnaire.md">E-Board Questionnaire</a></li>
-        </ul>
+        <div class="section-top">
+          <h2 id="notes-pages-title">Notes</h2>
+          <p class="section-note">Internal docs and planning</p>
+        </div>
+        <div class="link-grid">
+          <a class="sitemap-link" href="notes/README.md">
+            <span class="link-title">Notes README</span>
+            <span class="link-meta">Notes folder overview</span>
+          </a>
+          <a class="sitemap-link" href="notes/project-context.md">
+            <span class="link-title">Project Context</span>
+            <span class="link-meta">Context and planning notes</span>
+          </a>
+          <a class="sitemap-link" href="notes/eboard-questionnaire.md">
+            <span class="link-title">E-Board Questionnaire</span>
+            <span class="link-meta">Questionnaire notes</span>
+          </a>
+        </div>
       </section>
 
       <section class="panel" aria-labelledby="prism-pages-title">
-        <h2 id="prism-pages-title">Prism Pages</h2>
-        <ul>
-          <li><a href="prism/index.html">Prism Homepage</a></li>
-          <li><a href="prism/about.html">Prism About</a></li>
-        </ul>
+        <div class="section-top">
+          <h2 id="prism-pages-title">Prism Pages</h2>
+          <p class="section-note">Primary Prism routes</p>
+        </div>
+        <div class="link-grid">
+          <a class="sitemap-link" href="prism/index.html">
+            <span class="link-title">Prism Homepage</span>
+            <span class="link-meta">Main org landing page</span>
+          </a>
+          <a class="sitemap-link" href="prism/about.html">
+            <span class="link-title">Prism About</span>
+            <span class="link-meta">Leadership overview</span>
+          </a>
+          <a class="sitemap-link" href="prism/resources.html">
+            <span class="link-title">Prism Resources</span>
+            <span class="link-meta">Support and resource hub</span>
+          </a>
+        </div>
       </section>
 
       <section class="panel" aria-labelledby="team-pages-title">
-        <h2 id="team-pages-title">Prism Team Pages</h2>
-        <ul>
-          <li><a href="prism/team/kylie-greenelsh.html">Kylie Greenelsh</a></li>
-          <li><a href="prism/team/everett-pohl.html">Everett Pohl</a></li>
-          <li><a href="prism/team/athena.html">Athena</a></li>
-          <li><a href="prism/team/asia.html">Asia</a></li>
-        </ul>
+        <div class="section-top">
+          <h2 id="team-pages-title">Prism Team Pages</h2>
+          <p class="section-note">Individual officer profiles</p>
+        </div>
+        <div class="link-grid">
+          <a class="sitemap-link" href="prism/team/kylie-greenelsh.html">
+            <span class="link-title">Kylie Greenelsh</span>
+            <span class="link-meta">President profile page</span>
+          </a>
+          <a class="sitemap-link" href="prism/team/everett-pohl.html">
+            <span class="link-title">Everett Pohl</span>
+            <span class="link-meta">Outreach Coordinator profile</span>
+          </a>
+          <a class="sitemap-link" href="prism/team/athena.html">
+            <span class="link-title">Athena</span>
+            <span class="link-meta">Treasurer profile page</span>
+          </a>
+          <a class="sitemap-link" href="prism/team/asia.html">
+            <span class="link-title">Asia</span>
+            <span class="link-meta">Secretary profile page</span>
+          </a>
+        </div>
       </section>
+      </div>
     </main>
   </body>
 </html>

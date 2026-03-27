@@ -6,3 +6,4 @@ These files can be opened directly by URL, for example:
 
 - `/notes/project-context.md`
 - `/notes/eboard-questionnaire.md`
+- `/notes/sitemap-maintenance.md`

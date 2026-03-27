@@ -14,13 +14,52 @@
   <body>
     <main>
       <div class="sitemap-shell">
-      <section class="panel panel--hero" aria-labelledby="sitemap-title">
-        <p class="eyebrow">Internal Navigation Board</p>
-        <h1 id="sitemap-title">Website Sitemap</h1>
-        <p>
-          This page is a simple internal shortcut page so you can jump straight to any existing
-          page on the site.
-        </p>
+        <section class="panel panel--hero" aria-labelledby="sitemap-title">
+          <p class="eyebrow">Internal Navigation Board</p>
+          <h1 id="sitemap-title">Website Sitemap</h1>
+          <p class="hero-copy">
+            This page is a simple internal shortcut page so you can jump straight to any existing
+            page on the site.
+          </p>
+          <div class="legend" aria-label="Sitemap legend">
+            <span class="legend-item">
+              <span class="legend-dot legend-dot--page" aria-hidden="true"></span>
+              Internal page
+            </span>
+            <span class="legend-item">
+              <span class="legend-dot legend-dot--file" aria-hidden="true"></span>
+              File or note
+            </span>
+            <span class="legend-item">
+              <span class="legend-dot legend-dot--external" aria-hidden="true"></span>
+              External link
+            </span>
+          </div>
+        </section>
+
+      <section class="panel" aria-labelledby="tree-title">
+        <div class="section-top">
+          <h2 id="tree-title">Section Trees</h2>
+          <p class="section-note">Quick branch map</p>
+        </div>
+        <div class="tree-grid" role="list">
+          <div class="tree-card" role="listitem">
+            <span class="tree-path">/</span>
+            <p>Home, ITSC 2214, TODO dashboard, ChatGPT Lite, Jailbreak, sitemap</p>
+          </div>
+          <div class="tree-card" role="listitem">
+            <span class="tree-path">/notes</span>
+            <p>Planning docs, reminders, and reference links</p>
+          </div>
+          <div class="tree-card" role="listitem">
+            <span class="tree-path">/prism</span>
+            <p>Homepage, about page, resource hub, events destination, and build guidance</p>
+          </div>
+          <div class="tree-card" role="listitem">
+            <span class="tree-path">/prism/team</span>
+            <p>Officer profile pages rendered from shared team data</p>
+          </div>
+        </div>
       </section>
 
       <section class="panel" aria-labelledby="root-pages-title">
@@ -29,29 +68,33 @@
           <p class="section-note">Core entry points</p>
         </div>
         <div class="link-grid">
-          <a class="sitemap-link" href="index.html">
+          <a class="sitemap-link sitemap-link--page" href="index.html">
             <span class="link-title">Home</span>
             <span class="link-meta">Main landing page</span>
           </a>
-          <a class="sitemap-link" href="itsc2214.html">
+          <a class="sitemap-link sitemap-link--page" href="itsc2214.html">
             <span class="link-title">ITSC 2214 Resources</span>
             <span class="link-meta">Course reference page</span>
           </a>
-          <a class="sitemap-link" href="todo.html">
+          <a class="sitemap-link sitemap-link--page" href="todo.html">
             <span class="link-title">Site TODO Dashboard</span>
             <span class="link-meta">Work tracking page</span>
           </a>
-          <a class="sitemap-link" href="chatgpt-lite.html">
+          <a class="sitemap-link sitemap-link--page" href="chatgpt-lite.html">
             <span class="link-title">ChatGPT Lite</span>
             <span class="link-meta">Utility page</span>
           </a>
-          <a class="sitemap-link" href="jailbreak/index.html">
+          <a class="sitemap-link sitemap-link--page" href="jailbreak/index.html">
             <span class="link-title">Jailbreak</span>
             <span class="link-meta">Standalone tool page</span>
           </a>
-          <a class="sitemap-link" href="prism/index.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/index.html">
             <span class="link-title">Prism Home</span>
             <span class="link-meta">Student org section</span>
+          </a>
+          <a class="sitemap-link sitemap-link--page" href="sitemap.html">
+            <span class="link-title">Sitemap</span>
+            <span class="link-meta">This internal navigation board</span>
           </a>
         </div>
       </section>
@@ -62,7 +105,7 @@
           <p class="section-note">Direct file access</p>
         </div>
         <div class="link-grid">
-          <a class="sitemap-link" href="Everett's Resume Spring 2026.pdf">
+          <a class="sitemap-link sitemap-link--file" href="Everett's Resume Spring 2026.pdf">
             <span class="link-title">Resume PDF</span>
             <span class="link-meta">Spring 2026 resume file</span>
           </a>
@@ -75,17 +118,33 @@
           <p class="section-note">Internal docs and planning</p>
         </div>
         <div class="link-grid">
-          <a class="sitemap-link" href="notes/README.md">
+          <a class="sitemap-link sitemap-link--file" href="notes/README.md">
             <span class="link-title">Notes README</span>
             <span class="link-meta">Notes folder overview</span>
           </a>
-          <a class="sitemap-link" href="notes/project-context.md">
+          <a class="sitemap-link sitemap-link--file" href="notes/project-context.md">
             <span class="link-title">Project Context</span>
             <span class="link-meta">Context and planning notes</span>
           </a>
-          <a class="sitemap-link" href="notes/eboard-questionnaire.md">
+          <a class="sitemap-link sitemap-link--file" href="notes/eboard-questionnaire.md">
             <span class="link-title">E-Board Questionnaire</span>
             <span class="link-meta">Questionnaire notes</span>
+          </a>
+          <a class="sitemap-link sitemap-link--file" href="notes/reminders.md">
+            <span class="link-title">Reminders</span>
+            <span class="link-meta">Temporary reminder links and notes</span>
+          </a>
+          <a class="sitemap-link sitemap-link--file" href="notes/filename.md">
+            <span class="link-title">Filename Reference</span>
+            <span class="link-meta">Single-link reference note</span>
+          </a>
+          <a class="sitemap-link sitemap-link--file" href="prism/agents.md">
+            <span class="link-title">Prism Build Guidance</span>
+            <span class="link-meta">Project notes for Prism work</span>
+          </a>
+          <a class="sitemap-link sitemap-link--file" href="notes/sitemap-maintenance.md">
+            <span class="link-title">Sitemap Maintenance</span>
+            <span class="link-meta">Rules for sitemap structure and icon meaning</span>
           </a>
         </div>
       </section>
@@ -96,17 +155,24 @@
           <p class="section-note">Primary Prism routes</p>
         </div>
         <div class="link-grid">
-          <a class="sitemap-link" href="prism/index.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/index.html">
             <span class="link-title">Prism Homepage</span>
             <span class="link-meta">Main org landing page</span>
           </a>
-          <a class="sitemap-link" href="prism/about.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/about.html">
             <span class="link-title">Prism About</span>
             <span class="link-meta">Leadership overview</span>
           </a>
-          <a class="sitemap-link" href="prism/resources.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/resources.html">
             <span class="link-title">Prism Resources</span>
             <span class="link-meta">Support and resource hub</span>
+          </a>
+          <a
+            class="sitemap-link sitemap-link--external"
+            href="https://ninerengage.charlotte.edu/organization/prismunccharlotte/events"
+          >
+            <span class="link-title">Prism Events</span>
+            <span class="link-meta">Current external events destination</span>
           </a>
         </div>
       </section>
@@ -117,19 +183,19 @@
           <p class="section-note">Individual officer profiles</p>
         </div>
         <div class="link-grid">
-          <a class="sitemap-link" href="prism/team/kylie-greenelsh.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/team/kylie-greenelsh.html">
             <span class="link-title">Kylie Greenelsh</span>
             <span class="link-meta">President profile page</span>
           </a>
-          <a class="sitemap-link" href="prism/team/everett-pohl.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/team/everett-pohl.html">
             <span class="link-title">Everett Pohl</span>
             <span class="link-meta">Outreach Coordinator profile</span>
           </a>
-          <a class="sitemap-link" href="prism/team/athena.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/team/athena.html">
             <span class="link-title">Athena</span>
             <span class="link-meta">Treasurer profile page</span>
           </a>
-          <a class="sitemap-link" href="prism/team/asia.html">
+          <a class="sitemap-link sitemap-link--page" href="prism/team/asia.html">
             <span class="link-title">Asia</span>
             <span class="link-meta">Secretary profile page</span>
           </a>

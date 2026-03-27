@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Virtual business card for Everett Pohl with contact details, LinkedIn, GitHub, and a quick introduction."
+    />
+    <title>Everett Pohl | Virtual Business Card</title>
+    <style>
+      :root {
+        --bg: #f4ede3;
+        --paper: rgba(255, 250, 242, 0.9);
+        --paper-strong: rgba(255, 255, 255, 0.96);
+        --text: #1d1422;
+        --muted: #5b5061;
+        --line: rgba(29, 20, 34, 0.12);
+        --teal: #0f766e;
+        --teal-deep: #115e59;
+        --orange: #c2410c;
+        --gold: #d97706;
+        --shadow: 0 22px 60px rgba(36, 22, 45, 0.16);
+        --radius: 28px;
+        --max-width: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.55;
+        background:
+          radial-gradient(circle at 12% 20%, rgba(15, 118, 110, 0.22), transparent 28%),
+          radial-gradient(circle at 88% 16%, rgba(217, 119, 6, 0.2), transparent 24%),
+          radial-gradient(circle at 72% 82%, rgba(194, 65, 12, 0.16), transparent 26%),
+          linear-gradient(160deg, #f7f1e7 0%, #efe5d6 44%, #f8f2eb 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        background: var(--text);
+        color: #fff;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .page-shell {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-shell::before,
+      .page-shell::after {
+        content: "";
+        position: fixed;
+        inset: auto;
+        border-radius: 999px;
+        pointer-events: none;
+        filter: blur(10px);
+        opacity: 0.75;
+      }
+
+      .page-shell::before {
+        width: 14rem;
+        height: 14rem;
+        top: 6rem;
+        right: -3rem;
+        background: linear-gradient(135deg, rgba(15, 118, 110, 0.24), rgba(255, 255, 255, 0));
+      }
+
+      .page-shell::after {
+        width: 16rem;
+        height: 16rem;
+        bottom: 2rem;
+        left: -4rem;
+        background: linear-gradient(135deg, rgba(194, 65, 12, 0.18), rgba(255, 255, 255, 0));
+      }
+
+      .wrap {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 0 0;
+      }
+
+      .eyebrow,
+      .mini-label {
+        display: inline-block;
+        padding: 0.38rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        color: var(--teal-deep);
+        background: rgba(15, 118, 110, 0.12);
+      }
+
+      .mini-label {
+        color: var(--orange);
+        background: rgba(194, 65, 12, 0.1);
+      }
+
+      .nav-link {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        color: var(--text);
+        outline: none;
+      }
+
+      .hero {
+        padding: 2.5rem 0 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.9fr;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .panel,
+      .spotlight-card,
+      .info-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .panel {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(1.6rem, 3vw, 3rem);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(249, 241, 228, 0.86)),
+          var(--paper);
+      }
+
+      .panel::after {
+        content: "";
+        position: absolute;
+        inset: 1rem;
+        border-radius: calc(var(--radius) - 10px);
+        border: 1px dashed rgba(29, 20, 34, 0.12);
+        pointer-events: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 7vw, 5.6rem);
+        line-height: 0.95;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        line-height: 1.05;
+        margin-bottom: 0.8rem;
+      }
+
+      .role-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin-bottom: 1.2rem;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .role-line strong {
+        color: var(--text);
+      }
+
+      .lead {
+        max-width: 40rem;
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin: 1.6rem 0;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3rem;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        text-decoration: none;
+        font-weight: 700;
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease,
+          border-color 160ms ease,
+          background 160ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .button-primary {
+        color: #fff;
+        background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+        box-shadow: 0 12px 24px rgba(17, 94, 89, 0.22);
+      }
+
+      .button-secondary {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(29, 20, 34, 0.14);
+      }
+
+      .button-secondary:hover,
+      .button-secondary:focus-visible {
+        border-color: var(--text);
+      }
+
+      .signal-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-top: 1.5rem;
+      }
+
+      .signal {
+        padding: 1rem;
+        border-radius: 1.2rem;
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid rgba(29, 20, 34, 0.08);
+      }
+
+      .signal strong {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-size: 1.08rem;
+      }
+
+      .signal span {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .spotlight-card {
+        display: grid;
+        align-content: start;
+        gap: 0.9rem;
+        padding: 1.4rem;
+        background:
+          radial-gradient(circle at top right, rgba(15, 118, 110, 0.1), transparent 30%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(247, 239, 227, 0.92));
+        color: var(--text);
+      }
+
+      .spotlight-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 1rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        color: var(--orange);
+        background: rgba(194, 65, 12, 0.1);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .contact-stack,
+      .links-stack {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .info-card {
+        padding: 0.95rem 1rem;
+        border-radius: 1.2rem;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: none;
+      }
+
+      .info-card p,
+      .spotlight-card p {
+        color: var(--muted);
+      }
+
+      .info-label {
+        display: block;
+        margin-bottom: 0.28rem;
+        color: var(--orange);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .info-value {
+        font-size: 1.05rem;
+        font-weight: 700;
+        word-break: break-word;
+      }
+
+      .inline-link {
+        color: var(--text);
+      }
+
+      .inline-link:hover,
+      .inline-link:focus-visible {
+        color: var(--teal-deep);
+        outline: none;
+      }
+
+      .section {
+        padding: 0 0 3rem;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .paper-card {
+        padding: 1.4rem;
+        border-radius: 1.4rem;
+        border: 1px solid var(--line);
+        background: var(--paper-strong);
+        box-shadow: 0 16px 34px rgba(36, 22, 45, 0.09);
+      }
+
+      .paper-card p {
+        color: var(--muted);
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        padding: 0.5rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.08);
+        color: var(--teal-deep);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      footer {
+        padding: 0 0 2.5rem;
+      }
+
+      footer p {
+        margin: 0;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .details-grid,
+        .signal-list {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .wrap {
+          width: min(calc(100% - 1.25rem), var(--max-width));
+        }
+
+        .hero {
+          padding-top: 1.5rem;
+        }
+
+        .panel,
+        .spotlight-card,
+        .paper-card,
+        .info-card {
+          border-radius: 1.4rem;
+        }
+
+        h1 {
+          font-size: clamp(2.45rem, 14vw, 3.5rem);
+        }
+
+        .cta-row .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="page-shell">
+      <header class="wrap topbar">
+        <p class="eyebrow">Everett Pohl</p>
+        <a class="nav-link" href="index.html">Back to Homepage</a>
+      </header>
+
+      <main id="main-content" class="wrap">
+        <section class="hero" aria-labelledby="card-title">
+          <div class="hero-grid">
+            <article class="panel">
+              <span class="mini-label">Virtual Business Card</span>
+              <h1 id="card-title">Everett Pohl</h1>
+              <div class="role-line">
+                <strong>CS Student and Designer</strong>
+                <span>UNC Charlotte</span>
+                <span>Open to conversations, collaboration, and opportunities</span>
+              </div>
+              <p class="lead">
+                I am a UNC Charlotte student focused on building thoughtful, people-centered technology.
+                I enjoy the space where software engineering, communication, and design meet, especially
+                when the work helps ideas feel clearer, friendlier, and more useful.
+              </p>
+              <div class="cta-row">
+                <a class="button button-primary" href="mailto:epohl@charlotte.edu">Email Me</a>
+                <a class="button button-secondary" href="https://www.linkedin.com/in/everettpohl/">LinkedIn</a>
+                <a class="button button-secondary" href="https://github.com/everpohl">GitHub</a>
+              </div>
+              <div class="signal-list" aria-label="Quick overview">
+                <div class="signal">
+                  <strong>Human-centered</strong>
+                  <span>Interested in interfaces, communication, and approachable software.</span>
+                </div>
+                <div class="signal">
+                  <strong>Technical</strong>
+                  <span>Studying computer science while building web and software projects.</span>
+                </div>
+                <div class="signal">
+                  <strong>Collaborative</strong>
+                  <span>Comfortable leading, teaching, and working with multidisciplinary teams.</span>
+                </div>
+              </div>
+            </article>
+
+            <aside class="spotlight-card" aria-labelledby="connect-title">
+              <div class="spotlight-top">
+                <div>
+                  <span class="badge">Quick Connect</span>
+                  <h2 id="connect-title">Let’s stay in touch</h2>
+                  <p>Best for quick follow-up after the hackathon.</p>
+                </div>
+              </div>
+
+              <div class="contact-stack">
+                <div class="info-card">
+                  <span class="info-label">Email</span>
+                  <a class="info-value inline-link" href="mailto:epohl@charlotte.edu">epohl@charlotte.edu</a>
+                </div>
+                <div class="info-card">
+                  <span class="info-label">Phone</span>
+                  <a class="info-value inline-link" href="tel:12052722237">(205) 272-2237</a>
+                </div>
+              </div>
+
+              <div class="links-stack">
+                <div class="info-card">
+                  <span class="info-label">LinkedIn</span>
+                  <a class="info-value inline-link" href="https://www.linkedin.com/in/everettpohl/">
+                    linkedin.com/in/everettpohl
+                  </a>
+                </div>
+                <div class="info-card">
+                  <span class="info-label">GitHub</span>
+                  <a class="info-value inline-link" href="https://github.com/everpohl">
+                    github.com/everpohl
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="more-title">
+          <div class="details-grid">
+            <article class="paper-card">
+              <h2 id="more-title">What I’m about</h2>
+              <p>
+                My background combines computer science, communication, and design, which means I care
+                just as much about how something feels to use as how it works under the hood. I like
+                projects that need both technical structure and a strong sense of audience.
+              </p>
+              <div class="tag-row" aria-label="Focus areas">
+                <span class="tag">Web Development</span>
+                <span class="tag">UI and UX Thinking</span>
+                <span class="tag">Communication</span>
+                <span class="tag">Student Leadership</span>
+              </div>
+            </article>
+
+            <article class="paper-card">
+              <h2>Best ways to reach me</h2>
+              <p>
+                Email is usually the fastest option, but LinkedIn works great for follow-up after an event.
+                If you want to see what I am building or exploring, GitHub is the best quick snapshot.
+              </p>
+              <div class="cta-row">
+                <a class="button button-primary" href="https://github.com/everpohl">View GitHub</a>
+                <a class="button button-secondary" href="sitemap.html">Site Map</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="wrap">
+        <p>Virtual business card for networking, recruiting, and hackathon conversations.</p>
+      </footer>
+    </div>
+  </body>
+</html>

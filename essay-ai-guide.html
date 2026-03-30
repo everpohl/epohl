@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A practical guide for using AI to organize essays without letting it write them for you."
+    />
+    <title>Essay AI Guide | Everett Pohl</title>
+    <style>
+      :root {
+        --bg: #f7f3ea;
+        --surface: rgba(255, 255, 255, 0.82);
+        --text: #1f1727;
+        --muted: #625869;
+        --border: rgba(31, 23, 39, 0.12);
+        --primary: #0f766e;
+        --primary-dark: #115e59;
+        --accent: #c2410c;
+        --shadow: 0 18px 44px rgba(34, 25, 45, 0.12);
+        --max-width: 1080px;
+        --radius: 24px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.6;
+        color: var(--text);
+        overflow-wrap: break-word;
+        background:
+          radial-gradient(circle at top left, rgba(15, 118, 110, 0.15), transparent 30%),
+          radial-gradient(circle at right, rgba(194, 65, 12, 0.12), transparent 25%),
+          linear-gradient(180deg, #f5efe3 0%, var(--bg) 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        padding: 0.75rem 1rem;
+        background: var(--text);
+        color: #fff;
+        border-radius: 0.75rem;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .wrap {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin: 0;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.12);
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+        margin-top: 0;
+      }
+
+      h2 {
+        font-size: clamp(1.7rem, 3vw, 2.3rem);
+        margin-bottom: 0.75rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+      }
+
+      @media (max-width: 480px) {
+        .wrap {
+          width: min(calc(100% - 1.25rem), var(--max-width));
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="styles/essay-guide.css" />
+  </head>
+  <body class="essay-guide-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <main id="main-content" class="wrap essay-guide-shell">
+      <div class="essay-guide-topbar">
+        <p class="eyebrow">webpages.charlotte.edu/epohl</p>
+        <a class="essay-guide-nav" href="index.html">Back to homepage</a>
+      </div>
+
+      <article class="essay-guide" aria-labelledby="essay-guide-title">
+        <header class="essay-guide__header">
+          <h1 id="essay-guide-title" class="essay-guide__title">
+            How to Use AI to Organize Your Essays Without Letting It Write Them
+          </h1>
+          <p class="essay-guide__subtitle">
+            A practical guide you can reuse every time you write
+          </p>
+        </header>
+
+        <section aria-labelledby="intro-title">
+          <h2 id="intro-title">Start with your own ideas.</h2>
+          <p class="essay-guide__lede">
+            You keep your ideas, your voice, and your judgment. AI can help with structure,
+            clarity, and next-step questions, but the goal is not outsourcing the writing.
+          </p>
+        </section>
+
+        <section class="essay-guide__principle" aria-labelledby="principle-title">
+          <h2 id="principle-title">Core Principle</h2>
+          <p>You provide the ideas. The AI provides structure, clarity, and questions.</p>
+        </section>
+
+        <section aria-labelledby="steps-title">
+          <h2 id="steps-title">Steps</h2>
+          <div class="essay-guide__steps">
+            <section class="essay-guide__step" aria-labelledby="lock-the-role-title">
+              <h3 id="lock-the-role-title">Lock the Role</h3>
+              <p>
+                Set the boundaries first. This keeps the tool in an organizing role instead of
+                drifting into idea generation or full drafting.
+              </p>
+              <div class="prompt-block">
+                <button
+                  class="prompt-block__copy"
+                  type="button"
+                  data-copy-target="role-prompt"
+                  data-copy-label="Copy"
+                  data-copy-success="Copied!"
+                  aria-label="Copy role prompt"
+                >
+                  Copy
+                </button>
+                <pre><code id="role-prompt">You are an essay organizer and clarity assistant.
+
+You are NOT allowed to:
+- add new ideas, arguments, or examples
+- write full paragraphs unless I explicitly ask
+
+You ARE allowed to:
+- organize my ideas into structure
+- point out unclear reasoning
+- suggest improvements to clarity
+- ask me questions when something is missing
+
+If something is missing, ask instead of filling it in.</code></pre>
+              </div>
+            </section>
+
+            <section class="essay-guide__step" aria-labelledby="brain-dump-title">
+              <h3 id="brain-dump-title">Brain Dump</h3>
+              <p>
+                Put down your own raw thoughts first. Notes, claims, examples, fragments, and
+                half-finished sentences all work, because the AI should be working from your
+                material rather than inventing new material for you.
+              </p>
+            </section>
+
+            <section class="essay-guide__step" aria-labelledby="ask-for-structure-title">
+              <h3 id="ask-for-structure-title">Ask for Structure</h3>
+              <p>
+                Once your ideas exist on the page, ask for an outline. The point is to turn your
+                own material into a workable thesis and supporting points, not to produce a draft.
+              </p>
+              <div class="prompt-block">
+                <button
+                  class="prompt-block__copy"
+                  type="button"
+                  data-copy-target="structure-prompt"
+                  data-copy-label="Copy"
+                  data-copy-success="Copied!"
+                  aria-label="Copy structure prompt"
+                >
+                  Copy
+                </button>
+                <pre><code id="structure-prompt">Organize these ideas into:
+- a working thesis
+- 3–4 main points
+- bullet points under each
+
+Do NOT write paragraphs.
+Only use my ideas.</code></pre>
+              </div>
+            </section>
+
+            <section class="essay-guide__step" aria-labelledby="find-weak-spots-title">
+              <h3 id="find-weak-spots-title">Find Weak Spots</h3>
+              <p>
+                Before you draft, ask where your argument feels thin or unclear. That gives you a
+                revision target before weak logic gets buried inside polished paragraphs.
+              </p>
+              <div class="prompt-block">
+                <button
+                  class="prompt-block__copy"
+                  type="button"
+                  data-copy-target="weakness-prompt"
+                  data-copy-label="Copy"
+                  data-copy-success="Copied!"
+                  aria-label="Copy weakness prompt"
+                >
+                  Copy
+                </button>
+                <pre><code id="weakness-prompt">What parts of my argument are unclear or underdeveloped?
+What questions would a professor ask?
+Where do I need more explanation?</code></pre>
+              </div>
+            </section>
+
+            <section class="essay-guide__step" aria-labelledby="force-questions-title">
+              <h3 id="force-questions-title">Force Questions</h3>
+              <p>
+                One of the best uses of AI here is making it interrogate your thinking. Strong
+                questions help you discover what still needs evidence, explanation, or sharper
+                framing.
+              </p>
+              <div class="prompt-block">
+                <button
+                  class="prompt-block__copy"
+                  type="button"
+                  data-copy-target="question-prompt"
+                  data-copy-label="Copy"
+                  data-copy-success="Copied!"
+                  aria-label="Copy question prompt"
+                >
+                  Copy
+                </button>
+                <pre><code id="question-prompt">Ask me 5 specific questions that would strengthen this essay.
+Do not answer them.</code></pre>
+              </div>
+            </section>
+
+            <section class="essay-guide__step" aria-labelledby="controlled-rewording-title">
+              <h3 id="controlled-rewording-title">Controlled Rewording</h3>
+              <p>
+                Use this only after you already know what you mean. Keep the request narrow so you
+                get help with clarity instead of accidentally changing the meaning or tone.
+              </p>
+              <div class="prompt-block">
+                <button
+                  class="prompt-block__copy"
+                  type="button"
+                  data-copy-target="rewording-prompt"
+                  data-copy-label="Copy"
+                  data-copy-success="Copied!"
+                  aria-label="Copy rewording prompt"
+                >
+                  Copy
+                </button>
+                <pre><code id="rewording-prompt">Here is a sentence I wrote:
+
+[insert sentence]
+
+Give me 3 clearer versions.
+Keep the same meaning and tone.
+Do not add new ideas.</code></pre>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section aria-labelledby="avoid-title">
+          <h2 id="avoid-title">What to Avoid</h2>
+          <ul class="essay-guide__avoid-list">
+            <li>Asking AI to generate the whole essay from a topic or prompt.</li>
+            <li>Letting it invent examples, evidence, or arguments you did not choose.</li>
+            <li>Accepting polished wording that changes your voice or your meaning.</li>
+            <li>Using AI answers as a substitute for doing the thinking yourself.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="workflow-title">
+          <h2 id="workflow-title">Quick Workflow</h2>
+          <ol class="essay-guide__workflow-list">
+            <li>Paste the role prompt first.</li>
+            <li>Drop in your raw notes, examples, and ideas.</li>
+            <li>Use the structure prompt to organize them.</li>
+            <li>Use the weakness and question prompts to find what is missing.</li>
+            <li>Write the essay yourself, then use controlled rewording only where needed.</li>
+          </ol>
+        </section>
+      </article>
+
+      <footer class="essay-guide-footer">
+        <p>Part of Everett Pohl’s personal website.</p>
+      </footer>
+    </main>
+
+    <script src="js/essay-guide.js"></script>
+  </body>
+</html>

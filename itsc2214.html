@@ -253,12 +253,12 @@
                   Open article
                 </a>
               </li>
-              <li>
+              <li class="resource-item">
                 <span class="resource-tag">UNC Charlotte</span>
-                <h3>How to host your own website with the University. </h3>
+                <h3>How to host your own website (on the University's dime)</h3>
                 <p data-status="todo" data-category="content">
                     This is how I set up this website. 
-                    Free * (in the sense you are already paying for it with ur tuitition)
+                    Free * (in the sense you are already paying for it with ur tuition)
                 </p>
                 <a
                     class="resource-link"
@@ -267,6 +267,24 @@
                     rel="noreferrer"
                 >
                   Open article
+                </a>
+              </li>
+              <li class="resource-item">
+                <span class="resource-tag">Web-CAT & Extension Errors</span>
+                <h3>How to fix "could not find submission url"</h3>
+                <p>
+                    basically means it can't find the url to upload to Web-CAT. That is one of the settings in their <strong>settings.json</strong> in the profile. It should have this:
+                    <br>"itsc2214.uploadURL": <strong>"https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/wa/assignments/eclipse?institution=UNCC&staff=true"</strong>,
+                    <br>
+                    but who knows why it doesn't. Profile not installed? Not selected? Using old plugin?
+                    Simple solution: zip 2 files (java and test) and go to Web-CAT and submit by hand. 
+                </p>
+                <a 
+                    class="resource-link"
+                    href="https://docs.google.com/document/d/1sbx_FNfC-49oQSCy9nJ1_MYtoCtTspCHoleyIrx8sNw/edit?tab=t.0"
+                    target="_blank"                        rel="noreferrer"
+                >
+                    Source
                 </a>
               </li>
             </ul>
